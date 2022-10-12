@@ -9,7 +9,7 @@ public abstract class Edge {
 		this.weight = weight;
 	}
 	
-	public abstract void activer();
+	public abstract void activate();
 
 	public int getWeight() {
 		return weight;
@@ -20,6 +20,16 @@ public abstract class Edge {
 	}
 	
 	public void checkActivable(int nbJetons) {
+	}
+
+	public void setActivable(boolean activable) {
+		this.activable = activable;
+	}
+	
+	public Edge (int id, int weight) {
+		this.id=id;
+		this.weight=weight;
+		this.activable=true;
 	}
 
 }
