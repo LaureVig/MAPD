@@ -1,25 +1,22 @@
 package main;
 
+import java.util.LinkedList;
+
 public class Place {
-	private int id;
 	private int numberOfTokens;
+	private LinkedList<Edge> edges; 
 	
 	/**
 	 * Constructor of Place
 	 * @param id
 	 * @param numberOfTokens
 	 */
-	public Place(int id, int numberOfTokens) {
-		this.id = id;
+	public Place(int numberOfTokens, LinkedList<Edge> edges) {
 		this.numberOfTokens = numberOfTokens;
+		this.edges = edges;
 	}
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public int getNumberOfTokens() {
 		return numberOfTokens;
 	}
@@ -27,8 +24,9 @@ public class Place {
 		this.numberOfTokens = numberOfTokens;
 	}
 	
-	public boolean checkActivable() {
-		
-		return true;
+	public void checkActivable() {
+		for (int i = 0; i<this.edges.size();i++) {
+			this.edges.get(i).checkActivable(this.numberOfTokens);
+		}
 	}
 }

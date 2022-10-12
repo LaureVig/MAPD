@@ -1,26 +1,23 @@
 package main;
 
+import java.util.LinkedList;
+
 public class Transition {
-	private int id;
 	private boolean activable;
+	private LinkedList<Edge> edges;
 	
 	/**
 	 * Constructor of Transition
 	 * @param id
 	 * @param activable
 	 */
-	public Transition(int id, boolean activable) {
-		this.id = id;
+	public Transition(boolean activable, LinkedList<Edge> edges) {
 		this.activable = activable;
+		this.edges=edges;
 	}
 	
 	// Getters and Setters
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public boolean isActivable() {
 		return activable;
 	}
@@ -30,6 +27,9 @@ public class Transition {
 	
 	// Methods
 	public void doTransition() {
+		for (int i=0;i<this.edges.size();i++) {
+			this.edges.get(i).activate();
+		}
 		
 	}
 }

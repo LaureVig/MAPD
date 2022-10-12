@@ -9,6 +9,7 @@ public class InEdge extends Edge{
 	@Override
 	public void activate() {
 		this.destination.setNumberOfTokens(this.destination.getNumberOfTokens()+this.getWeight());
+		this.destination.checkActivable();
 	}
 	
 	public InEdge(Transition origin, Place destination,int id, int weight) {

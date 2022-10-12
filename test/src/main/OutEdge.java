@@ -7,6 +7,7 @@ public class OutEdge extends Edge{
 	@Override
 	public void activate() {
 		this.origin.setNumberOfTokens(this.origin.getNumberOfTokens()-this.getWeight());
+		this.origin.checkActivable();
 	}
 	
 	public void checkActivable (int nbJetons) {
