@@ -123,17 +123,20 @@ public class Network {
 	}
 	
 	public void step() {
-		
+		LinkedList<Transition> fireable = this.getFirable();
+		int size = fireable.size();
+		fireable.get(0).doTransition();
 	}
+	
 	public LinkedList<Transition> getFirable() {
 		int size=transitions.size();
 		LinkedList<Transition> fireable = new LinkedList<Transition>();
 		for(int i=0;i<size;i++) {
 			Transition transition = this.transitions.get(i);
-//			transition.checkActivable();
-//			if (transition.isActivable()) {
-//				fireable.add(transition);
-//			}
+  			transition.checkActivable();
+			if (transition.isActivable()) {
+				fireable.add(transition);
+			}
 		}
 		return fireable;
 	}
