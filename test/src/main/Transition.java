@@ -45,5 +45,7 @@ public class Transition {
 		return edges;
 	}
 	
-	
+	public void addEdge (Edge edge) {
+		this.edges.add(edge);
+	}
 }

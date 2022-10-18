@@ -35,5 +35,8 @@ public class Place {
 		return edges;
 	}
 	
+	public void addEdge (Edge edge) {
+		this.edges.add(edge);
+	}
 	
 }

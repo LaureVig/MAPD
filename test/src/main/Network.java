@@ -82,6 +82,11 @@ public class Network {
 					test = ((InEdge) edge).sameTraject((InEdge)edges.get(i));
 				}
 			}
+			if (test==false) {
+				this.edges.add(edge);
+				((InEdge) edge).getDestination().addEdge(edge);
+				((InEdge) edge).getOrigin().addEdge(edge);
+			}
 		}
 		else {
 			Place origin = ((OutEdge) edge).getOrigin();
@@ -92,6 +97,11 @@ public class Network {
 				if (edges.get(i) instanceof OutEdge) {
 					test = ((OutEdge) edge).sameTraject((OutEdge)edges.get(i));
 				}
+			}
+			if (test==false) {
+				this.edges.add(edge);
+				((OutEdge) edge).getDestination().addEdge(edge);
+				((OutEdge) edge).getOrigin().addEdge(edge);
 			}
 		}
 	}
