@@ -15,10 +15,22 @@ public class OutEdge extends Edge{
 	}
 	
 	public OutEdge (Place origin, Transition destination, int id, int weight) {
-		super(id,weight);
+		super(weight);
 		this.destination=destination;
 		this.origin=origin;
 		this.activate();
+	}
+	
+	public boolean sameTraject (OutEdge edge) {
+		return (this.origin.equals(edge.getOrigin())&&this.destination.equals(edge.getDestination()));
+	}
+
+	public Place getOrigin() {
+		return origin;
+	}
+
+	public Transition getDestination() {
+		return destination;
 	}
 
 }

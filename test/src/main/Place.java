@@ -29,4 +29,11 @@ public class Place {
 			this.edges.get(i).checkActivable(this.numberOfTokens);
 		}
 	}
+
+
+	public LinkedList<Edge> getEdges() {
+		return edges;
+	}
+	
+	
 }

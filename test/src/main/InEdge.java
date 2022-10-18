@@ -12,10 +12,22 @@ public class InEdge extends Edge{
 		this.destination.checkActivable();
 	}
 	
+	public Transition getOrigin() {
+		return origin;
+	}
+
+	public Place getDestination() {
+		return destination;
+	}
+
 	public InEdge(Transition origin, Place destination,int id, int weight) {
-		super(id, weight);
+		super(weight);
 		this.origin=origin;
 		this.destination=destination;
+	}
+	
+	public boolean sameTraject (InEdge edge) {
+		return (this.origin.equals(edge.getOrigin())&&this.destination.equals(edge.getDestination()));
 	}
 
 }

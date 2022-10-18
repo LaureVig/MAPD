@@ -3,7 +3,6 @@ package main;
 public abstract class Edge {
 	private int weight;
 	private boolean activable;
-	private int id;
 	
 	public void setWeight(int weight) {
 		this.weight = weight;
@@ -26,8 +25,7 @@ public abstract class Edge {
 		this.activable = activable;
 	}
 	
-	public Edge (int id, int weight) {
-		this.id=id;
+	public Edge (int weight) {
 		this.weight=weight;
 		this.activable=true;
 	}

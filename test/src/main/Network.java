@@ -72,8 +72,27 @@ public class Network {
 	}
 	
 	public void addEdge(Edge edge) {
-		if(!(edges.contains(edge))) {
-			edges.add(edge);
+		if (edge instanceof InEdge) {
+			Place destination = ((InEdge) edge).getDestination();
+			LinkedList<Edge> edges = destination.getEdges();
+			boolean test = false;
+			int i = 0;
+			while (i<edges.size() && test==false) {
+				if (edges.get(i) instanceof InEdge) {
+					test = ((InEdge) edge).sameTraject((InEdge)edges.get(i));
+				}
+			}
+		}
+		else {
+			Place origin = ((OutEdge) edge).getOrigin();
+			LinkedList<Edge> edges = origin.getEdges();
+			boolean test = false;
+			int i = 0;
+			while (i<edges.size() && test==false) {
+				if (edges.get(i) instanceof OutEdge) {
+					test = ((OutEdge) edge).sameTraject((OutEdge)edges.get(i));
+				}
+			}
 		}
 	}
 	
