@@ -10,5 +10,5 @@ public class ZeroEdge extends OutEdge{
 	public void checkActivable(int nbJetons) {
 		this.setActivable(nbJetons==0);
 	}
-
+	//test commit
 }
